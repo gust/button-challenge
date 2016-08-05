@@ -1,0 +1,23 @@
+{
+  "name": "button-challenge",
+  "version": "0.0.0",
+  "description": "A coding and design challenge for candiates applying for an interaction designer/developer position at Gust.",
+  "author": "Kara Bernert <kara@gust.com>",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gust/button-challenge.git"
+  },
+
+  "scripts": {
+    "build": "echo 'write a build script pls"
+  },
+
+  "license": "UNLICENSED",
+
+  "devDependencies": {
+    "node-sass": "^3.7.0"
+  }
+}
+
