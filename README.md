@@ -4,17 +4,18 @@ We’d like you to design and implement a button that the user will click to con
 
 ##Requirements
 
-*Design:*
+**Design:**
 - There should be a visible distinction between the button in the ‘disabled’ and ‘enabled’ states that communicates the relevant state to the user.
 - There should be a transition/animation when the button goes from ‘disabled’ to ‘enabled’ to call the user’s attention to the fact that they are now able to continue with the experience
 - If the user tries to interact with the button in order to proceed while the button is still disabled, there should be an animation that communicates that they cannot do so. 
 
-*Tech:*
+**Tech:**
 - Use only HTML and SCSS/CSS (SCSS preferred).
 - The pattern you design should be reusable.
 - Parts of the pattern should also be reusable:
   - Design your code such that if we wanted to use a similar button elsewhere it would be easy to use the same* code, in full or in part, but change the size of the button and the color scheme.
   - Design your code such that if we wanted to use the animation you create for design spec 3 it would be easy to use the same* code, in full or in part, elsewhere.
+  
   *please note that by “same” we mean the actual code, not just a copy-pasted version, in order to maintain a DRY code-base. 
 
 ##What we’re looking for:
