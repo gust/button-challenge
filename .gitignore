@@ -1,5 +1,5 @@
 *.DS_Store
-index.css
+button-challenge.css
 
 node_modules
 npm-debug.log
