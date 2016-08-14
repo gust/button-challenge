@@ -3,14 +3,23 @@
   <head>
     <meta charset="utf-8">
     <link href="button-challenge.css" rel="stylesheet" title="Default Style">
-    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="javascripts/jquery.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script> -->
     <script src="javascripts/setup.js"></script>
   </head>
   <body>
-    <div class="header"><button id="test-button">Enable</button></div>
-
-    <!-- Feel free to change the button markup in any way you see fit. The provided javascript does require the 'new-button' id. -->
-    <button id="new-button" disabled>Your Button</button>
-
+    <form class="call-to-action-area">
+      <h1>
+        <label>I am <span id="article">a<span></label> 
+        <select class="variable-dropdown">
+          <option value>Select an Option</option>
+          <option value="founder">Founder</option>
+          <option value="investor">Investor</option>
+          <option value="accelerator">Accelerator</option>
+        </select> 
+        <br/>
+        and I'm ready to 
+        <button id="new-button" class="variable-cta animation" disabled="disabled">Submit</button>
+    </form>
   </body>
 </html>
