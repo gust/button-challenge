@@ -1,1 +1,194 @@
-// TODO: DEFINE YOUR BUTTON STYLES HERE
+@-webkit-keyframes not-allowed-animation {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+
+@keyframes not-allowed-animation {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+
+@mixin not-allowed-animation {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:hover, &:focus, &:active {
+    -webkit-animation-name: not-allowed-animation;
+    animation-name: not-allowed-animation;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+}
+
+@mixin button-transition {
+  -webkit-transition: background .5s ease;
+  -moz-transition: background .5s ease;
+  -o-transition: background .5s ease;
+  -ms-transition: background .5s ease;
+  transition: background .5s ease;
+
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:disabled {
+    @include not-allowed-animation
+  }
+}
+
+@mixin green-form-element {
+  @include button-transition
+  color: white;
+  background-color: #1ABC96;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  line-height: 30px;
+  padding: 20px 20px 10px;
+  -webkit-appearance: none;
+
+  &:disabled {
+    background-color: #e1e1e1;
+    cursor: not-allowed;
+
+    &:hover {
+      color: rgba(255, 255, 255, .5)
+    }
+  }
+}
+
+@mixin form-element-alignment {
+  bottom: 8px;
+  position: relative;
+}
+
+@mixin large-form-element {
+  height: 60px;
+  font-size: 30px;
+}
+
+
+.call-to-action-area {
+  text-align: center;
+  padding-right: 10%;
+  padding-left: 10%;
+  font-size: 30px;
+}
+
+.variable-cta {
+  @include large-form-element
+  @include green-form-element
+  @include form-element-alignment
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.variable-dropdown {
+  @include large-form-element  
+  @include green-form-element
+  @include form-element-alignment
+  width: 300px;
+}
