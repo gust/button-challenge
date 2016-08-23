@@ -18,9 +18,6 @@
   margin: 0 auto;
   padding: 0;
   border-radius: $radius;
-  button:disabled{
-    background-color: #C9C9C9;
-  }
   &:active{
     cursor: none;
     button{
@@ -42,6 +39,7 @@
     border-radius: $radius;
     background: url('./svgs/fatArrow.svg');
     background-size: $size;
+    background-color: #C9C9C9;
     transition: all 0.15s ease;
     &:focus{outline: none}
     &:enabled{
