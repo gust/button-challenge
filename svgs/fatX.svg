@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <style>.a{fill:none;stroke-width:3;stroke:#FFF;}</style>
+  <line x1="73.3" y1="26.2" x2="26.7" y2="72.6" class="a"/>
+  <line x1="26.7" y1="26.2" x2="73.3" y2="72.6" class="a"/>
+</svg>

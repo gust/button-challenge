@@ -1,1 +1,94 @@
-// TODO: DEFINE YOUR BUTTON STYLES HERE
+// form validation button 
+  // -> size
+  // -> shape 
+      // * border-radius %
+  // -> color
+      // * ok
+      // * error 
+
+@mixin validation-btn(
+  $size,
+  $radius,
+  $color-ok,
+  $color-err
+){
+  position: relative;
+  width: $size;
+  height: $size;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: $radius;
+  button:disabled{
+    background-color: #C9C9C9;
+  }
+  &:active{
+    cursor: none;
+    button{
+      &:disabled{
+        background: url('./svgs/fatX.svg');
+        background-size: $size;
+        background-color: $color-err;
+        animation: .5s ease-out .1s shake;
+      }
+    }
+  }
+  button{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: $radius;
+    background: url('./svgs/fatArrow.svg');
+    background-size: $size;
+    transition: all 0.15s ease;
+    &:focus{outline: none}
+    &:enabled{
+      transform: translate3d(8px, -8px, 0px);
+      box-shadow: -8px 8px 8px rgba(0,0,0,0.17);
+      opacity: 0.8;
+      background-color: $color-ok;
+      cursor: pointer;
+      &:active{
+        box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+      }
+    }
+    &:disabled{
+      pointer-events: none;
+      box-shadow: 0px 0px 0px rgba(0,0,0, 0.3);
+    }
+  }
+
+  @keyframes shake {
+    10%, 30% {
+      transform: translate3d(-1px, 0px, 0px);
+    }
+    20%, 40% {
+      transform: translate3d(3px, 0px, 0px);
+    }
+    50%, 70% {
+      transform: translate3d(-4px, 0px, 0px);
+    }
+    60%, 80% {
+      transform: translate3d(5px, 0px, 0px);
+    }
+    90%{
+      transform: translate3d(-4px, 0px, 0px);
+    }
+    95%{
+      transform: translate3d(3px, 0px, 0px);
+    }
+    98%{
+      transform: translate3d(-1px, 0px, 0px);
+    }
+  }
+}
+
+.validation-btn{
+  // mixin: (size, border-radius, color-ok, color-err)
+  @include validation-btn(100px, 50%, #5CC47C, #D66B6B)
+}
+
