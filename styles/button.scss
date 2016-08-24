@@ -43,7 +43,7 @@
     background-color: #C9C9C9;
     &:focus{outline: none}
     &:enabled{
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       transform: translate3d(8px, -8px, 0px);
       box-shadow: -8px 8px 8px rgba(0,0,0,0.17);
       opacity: 0.8;
@@ -57,6 +57,7 @@
       }
     }
     &:disabled{
+      transition: all 0.1s ease;
       pointer-events: none;
       box-shadow: 0px 0px 0px rgba(0,0,0, 0.3);
     }
