@@ -105,19 +105,19 @@ $Placeholder-Selectors: ();
         transform: translate3d(-1px, 0px, 0px);
       }
       20%, 40% {
-        transform: translate3d(5px, 0px, 0px);
+        transform: translate3d(4px, 0px, 0px);
       }
       50%, 70% {
         transform: translate3d(-6px, 0px, 0px);
       }
       60%, 80% {
-        transform: translate3d(8px, 0px, 0px);
+        transform: translate3d(7px, 0px, 0px);
       }
       85%{
-        transform: translate3d(-8px, 0px, 0px);
+        transform: translate3d(-6px, 0px, 0px);
       }
       90%{
-        transform: translate3d(5px, 0px, 0px);
+        transform: translate3d(4px, 0px, 0px);
       }
       95%{
         transform: translate3d(-3px, 0px, 0px);
@@ -142,7 +142,7 @@ $Placeholder-Selectors: ();
 }
 
 .val-btn-sqr{
-  @include validation-btn(80px, 10%);
+  @include validation-btn($radius: 10%);
 }
 
 .val-btn-sqr-sm{
@@ -154,7 +154,10 @@ $Placeholder-Selectors: ();
 }
 
 .val-btn-v2{
-  @include validation-btn(80px, 50%, #90C3D4, #F2A561);
+  @include validation-btn(
+    $color-ok: #90C3D4, 
+    $color-err: #F2A561
+  );
 }
 
 // etc.
