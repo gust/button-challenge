@@ -80,8 +80,28 @@
   }
 }
 
+%small-large{
+  &.small{
+    height: 50px;
+    width: 50px;
+  }
+
+  &.large{
+    height: 100px;
+    width: 100px;
+  }
+}
+
 .validation-btn{
   // mixin: (size, border-radius, color-ok, color-err)
-  @include validation-btn(100px); // override height
+  @include validation-btn; 
+  @extend %small-large
 }
+
+.validation-btn-sqr{
+  @include validation-btn(80px, 10%);
+  @extend %small-large;
+}
+
+
 
