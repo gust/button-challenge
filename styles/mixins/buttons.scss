@@ -1,4 +1,4 @@
-@mixin btn-size($map) {
+@mixin btn-sizes($map) {
   @each $size, $value in $map {
     &.#{$size} {
       height: $value;
@@ -7,7 +7,7 @@
   }
 }
 
-@mixin btn-shape($map) {
+@mixin btn-shapes($map) {
   @each $shape, $value in $map {
     &.#{$shape} {
       button{
@@ -34,8 +34,8 @@
 
 @mixin validation-btn($extend: true){
   @include validation-btn-static($extend);
-  @include btn-size($btn-sizes); 
-  @include btn-shape($btn-shapes);
+  @include btn-sizes($btn-sizes); 
+  @include btn-shapes($btn-shapes);
   @include btn-color-themes($btn-color-themes);
 }
 
@@ -66,11 +66,13 @@
     margin: 0 auto;
     margin-top: 20px;
     padding: 0;
+    #first-x{
+      stroke-dasharray: 0;
+      stroke-dashoffset: 0;
+    }
     &:hover{
       button{
         &:disabled{
-          cursor: not-allowed;
-          pointer-events: none;
           background: url('./svgs/fatX.svg');
           background-size: 100%;
           animation: .6s ease-out .3s shake;
