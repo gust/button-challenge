@@ -1,0 +1,28 @@
+<svg 
+  class="fat-x"
+  xmlns="http://www.w3.org/2000/svg" 
+  width="100" 
+  height="100" 
+  viewBox="0 0 100 100">
+
+  <line
+    id="first-x" 
+    stroke="#FFF"
+    stroke-width="3"
+    
+    x1="73.3" 
+    y1="26.2" 
+    x2="26.7" 
+    y2="72.6"/>
+
+  <line
+    id="second-x"
+    stroke="#FFF"
+    stroke-width="3"
+    
+    x1="26.7" 
+    y1="26.2" 
+    x2="73.3" 
+    y2="72.6"/>
+  </line>
+</svg>

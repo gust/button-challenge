@@ -1,0 +1,151 @@
+@mixin btn-sizes($map) {
+  @each $size, $value in $map {
+    &.#{$size} {
+      height: $value;
+      width: $value;
+    }
+  }
+}
+
+@mixin btn-shapes($map) {
+  @each $shape, $value in $map {
+    &.#{$shape} {
+      button{
+        border-radius: $value;
+      }
+    }
+  }
+}
+
+@mixin btn-color-themes($map) {
+  @each $theme, $version in $map {
+    &.#{$theme}{
+      &:hover{
+        button:disabled{
+          background-color: map-get($version, 'color-err');
+        }
+      }
+      button:enabled{
+        background-color: map-get($version, 'color-ok');
+        &:hover{
+          background-color: map-get($version, 'color-ok');
+        }
+      }
+    }
+  }
+}
+
+@mixin validation-btn-static($extend: true){
+  $button-selector: map-get(
+    $btn-placeholders, 'button'
+  );
+
+  @if $extend == true {
+    @if $button-selector == null {
+      $button-selector: unique-id();
+
+      $btn-placeholders: map-merge(
+        $btn-placeholders, 
+        ('button': $button-selector)
+      ) !global;
+      
+      @at-root %#{$button-selector} {
+        @include validation-btn-static(false);
+      }
+    }
+    @extend %#{$button-selector};
+  }
+  @else {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    padding: 0;
+    &:hover{
+      button:disabled{
+        animation: 0.7s ease-in .5s shake;
+        svg{
+          &.fat-arrow{
+            display: none;
+          }
+          &.fat-x{
+            line{
+              &.first-x{
+                animation: .15s ease-out 0s cross-x;
+                animation-fill-mode: forwards;
+              }
+              &.second-x{
+                animation: .1s ease-out .3s cross-x;
+                animation-fill-mode: forwards;
+              }
+            }
+            display: block;
+          }
+        }
+      }
+    }
+    button{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-size: 100%;
+      background-color: #D4D4D4;
+      svg{
+        height: 100%;
+        width: 100%;
+        &.fat-x{
+          display: none;
+        }
+        &.fat-arrow{
+          line{
+            animation: .2s ease-out 0s arrow-stem;
+            animation-fill-mode: forwards;
+          }
+          polyline{
+            animation: .2s ease-out .2s arrow-pointer;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+      &:focus{
+        outline: none
+      }
+      &:enabled{
+        transition: all 0.2s ease;
+        transform: translate3d(8px, -8px, 0px);
+        box-shadow: -8px 8px 8px rgba(0,0,0,0.17);
+        opacity: 0.8;
+        cursor: pointer;
+
+        &:active{
+          transition: all 0.1s ease;
+          box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+          transform: translate3d(0px, 0px, 0px);
+          opacity: 1;
+        }
+      }
+      &:disabled{
+        transition: all 0.1s ease;
+        pointer-events: none;
+        box-shadow: 0px 0px 0px rgba(0,0,0, 0.3);
+        &:hover{
+          background-color: black;
+        }
+      }
+    }
+  }
+}
+
+@mixin validation-btn($extend: true){
+  @include validation-btn-static($extend);
+  @include btn-sizes($btn-sizes); 
+  @include btn-shapes($btn-shapes);
+  @include btn-color-themes($btn-color-themes);
+  @include shake;
+  @include cross-x;
+  @include arrow-stem;
+  @include arrow-pointer;
+}

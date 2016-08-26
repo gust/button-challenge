@@ -8,7 +8,7 @@ function setToggleLabel(toggle, target) {
 
 function readyFn() {
   var $toggleBtn = $("#test-button");
-  var $targetBtn = $("#new-button");
+  var $targetBtn = $(".new-button");
   setToggleLabel($toggleBtn, $targetBtn);
 
   $toggleBtn.on('click', function() {
