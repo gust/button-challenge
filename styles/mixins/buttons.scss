@@ -23,7 +23,6 @@
       &:hover{
         button:disabled{
           background-color: map-get($version, 'color-err');
-          animation: .6s ease-out .3s shake;
         }
       }
       button:enabled{
@@ -64,11 +63,23 @@
     padding: 0;
     &:hover{
       button:disabled{
+        animation: .6s ease-out .5s shake;
         svg{
           &.fat-arrow{
             display: none;
           }
           &.fat-x{
+            line{
+              &#first-x{
+                animation: .15s ease-out 0s cross-x;
+                animation-fill-mode: forwards;
+              }
+              &#second-x{
+                animation: .1s ease-out .3s cross-x;
+                animation-fill-mode: forwards;
+              }
+            }
+            
             display: block;
           }
         }

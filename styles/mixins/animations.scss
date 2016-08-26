@@ -13,11 +13,9 @@
   @keyframes cross-x {
     from {
       stroke-dashoffset: 66;
-      stroke-dasharray: 66;
     }
     to {
       stroke-dashoffset: 0;
-      stroke-dasharray: 0;
     }
   }
 }
