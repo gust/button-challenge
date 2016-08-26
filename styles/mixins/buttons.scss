@@ -27,8 +27,20 @@
       }
       button:enabled{
         border-color: map-get($version, 'color-ok');
+        svg{
+          line,
+          polyline{
+            stroke: map-get($version, 'color-ok');
+          }
+        }
         &:active{
           background-color: map-get($version, 'color-ok');
+          svg{
+            line,
+            polyline{
+              stroke: #FFFFFF;
+            }
+          }
         }
       }
     }
@@ -79,7 +91,6 @@
                 animation-fill-mode: forwards;
               }
             }
-            
             display: block;
           }
         }
