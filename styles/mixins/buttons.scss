@@ -26,21 +26,9 @@
         }
       }
       button:enabled{
-        border-color: map-get($version, 'color-ok');
-        svg{
-          line,
-          polyline{
-            stroke: map-get($version, 'color-ok');
-          }
-        }
-        &:active{
+        background-color: map-get($version, 'color-ok');
+        &:hover{
           background-color: map-get($version, 'color-ok');
-          svg{
-            line,
-            polyline{
-              stroke: #FFFFFF;
-            }
-          }
         }
       }
     }
@@ -75,18 +63,18 @@
     padding: 0;
     &:hover{
       button:disabled{
-        animation: .6s ease-out .5s shake;
+        animation: 0.7s ease-in .5s shake;
         svg{
           &.fat-arrow{
             display: none;
           }
           &.fat-x{
             line{
-              &#first-x{
+              &.first-x{
                 animation: .15s ease-out 0s cross-x;
                 animation-fill-mode: forwards;
               }
-              &#second-x{
+              &.second-x{
                 animation: .1s ease-out .3s cross-x;
                 animation-fill-mode: forwards;
               }
@@ -111,13 +99,21 @@
         &.fat-x{
           display: none;
         }
+        &.fat-arrow{
+          line{
+            animation: .2s ease-out 0s arrow-stem;
+            animation-fill-mode: forwards;
+          }
+          polyline{
+            animation: .2s ease-out .2s arrow-pointer;
+            animation-fill-mode: forwards;
+          }
+        }
       }
       &:focus{
         outline: none
       }
       &:enabled{
-        background-color: #FFFFFF;
-        border: 3px solid;
         transition: all 0.2s ease;
         transform: translate3d(8px, -8px, 0px);
         box-shadow: -8px 8px 8px rgba(0,0,0,0.17);
@@ -148,6 +144,8 @@
   @include btn-sizes($btn-sizes); 
   @include btn-shapes($btn-shapes);
   @include btn-color-themes($btn-color-themes);
-  @include shake-animation;
-  @include cross-x-animation;
+  @include shake;
+  @include cross-x;
+  @include arrow-stem;
+  @include arrow-pointer;
 }
