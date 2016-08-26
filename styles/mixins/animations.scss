@@ -8,3 +8,16 @@
     90%, 95% {transform: translate3d(-2px, 0, 0)}
   }
 }
+
+@mixin cross-x-animation{
+  @keyframes cross-x {
+    from {
+      stroke-dashoffset: 66;
+      stroke-dasharray: 66;
+    }
+    to {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 0;
+    }
+  }
+}
