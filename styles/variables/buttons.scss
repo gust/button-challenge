@@ -1,0 +1,37 @@
+// validation button params
+$btn-sm: 50px;
+$btn-md: 80px;
+$btn-lg: 100px;
+$btn-rnd: 50%;
+$btn-sqr: 10%;
+$btn-color-v1-ok: #5CC47C;
+$btn-color-v1-err: #D66B6B;
+$btn-color-v2-ok: #90C3D4;
+$btn-color-v2-err: #F2A561;
+$btn-color-v3-ok: #B190D4;
+$btn-color-v3-err: #D49091;
+
+// validation button maps
+$btn-placeholders: ();
+$btn-shapes: (
+  'rnd': $btn-rnd,
+  'sqr': $btn-sqr
+);
+$btn-sizes: (
+  'sm': $btn-sm,
+  'lg': $btn-lg
+);
+$btn-color-themes: (
+  'v1': (
+    'color-ok': $btn-color-v1-ok,
+    'color-err': $btn-color-v1-err,
+  ),
+  'v2': (
+    'color-ok': $btn-color-v2-ok,
+    'color-err': $btn-color-v2-err
+  ),
+  'v3': (
+    'color-ok': $btn-color-v3-ok,
+    'color-err': $btn-color-v3-ok
+  )
+);

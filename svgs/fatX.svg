@@ -1,5 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-  <style>.a{fill:none;stroke-width:3;stroke:#FFF;}</style>
-  <line x1="73.3" y1="26.2" x2="26.7" y2="72.6" class="a"/>
-  <line x1="26.7" y1="26.2" x2="73.3" y2="72.6" class="a"/>
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  width="100" 
+  height="100" 
+  viewBox="0 0 100 100">
+
+  <line
+    stroke-dasharray="66" 
+    stroke-dashoffset="66"
+    stroke="#FFF"
+    stroke-width="3"
+    id="first-x" 
+    x1="73.3" 
+    y1="26.2" 
+    x2="26.7" 
+    y2="72.6">
+    <animate 
+      attributeName="stroke-dashoffset" 
+      from="66" to="0" 
+      dur=".1s"
+      begin=".15s"
+      fill="freeze"/>
+  </line>
+
+  <line
+    stroke-dasharray="66" 
+    stroke-dashoffset="66"
+    stroke="#FFF"
+    stroke-width="3"
+    x1="26.7" 
+    y1="26.2" 
+    x2="73.3" 
+    y2="72.6">
+    <animate 
+      attributeName="stroke-dashoffset" 
+      from="66" to="0" 
+      dur=".15s"
+      begin="0s"
+      fill="freeze"/>
+  </line>
+
 </svg>

@@ -1,0 +1,123 @@
+@mixin btn-size($map) {
+  @each $size, $value in $map {
+    &.#{$size} {
+      height: $value;
+      width: $value;
+    }
+  }
+}
+
+@mixin btn-shape($map) {
+  @each $shape, $value in $map {
+    &.#{$shape} {
+      button{
+        border-radius: $value;
+      }
+    }
+  }
+}
+
+@mixin btn-color-themes($map) {
+  @each $theme, $version in $map {
+    &.#{$theme}{
+      &:hover{
+        button:disabled{
+          background-color: map-get($version, 'color-err');
+        }
+      }
+      button:enabled{
+        background-color: map-get($version, 'color-ok')
+      }
+    }
+  }
+}
+
+@mixin validation-btn($extend: true){
+  @include validation-btn-static($extend);
+  @include btn-size($btn-sizes); 
+  @include btn-shape($btn-shapes);
+  @include btn-color-themes($btn-color-themes);
+}
+
+@mixin validation-btn-static($extend: true){
+  $button-selector: map-get(
+    $btn-placeholders, 'button'
+  );
+
+  @if $extend == true {
+    @if $button-selector == null {
+      $button-selector: unique-id();
+
+      $btn-placeholders: map-merge(
+        $btn-placeholders, 
+        ('button': $button-selector)
+      ) !global;
+      
+      @at-root %#{$button-selector} {
+        @include validation-btn-static(false);
+      }
+    }
+    @extend %#{$button-selector};
+  }
+  @else {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 0;
+    &:hover{
+      button{
+        &:disabled{
+          cursor: not-allowed;
+          pointer-events: none;
+          background: url('./svgs/fatX.svg');
+          background-size: 100%;
+          animation: .6s ease-out .3s shake;
+          transition: none;
+        }
+      }
+    }
+    button{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: url('./svgs/fatArrow.svg');
+      background-size: 100%;
+      background-color: #D4D4D4;
+      &:focus{
+        outline: none
+      }
+      &:enabled{
+        transition: all 0.2s ease;
+        transform: translate3d(8px, -8px, 0px);
+        box-shadow: -8px 8px 8px rgba(0,0,0,0.17);
+        opacity: 0.8;
+        cursor: pointer;
+        &:active{
+          transition: all 0.1s ease;
+          box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+          transform: translate3d(0px, 0px, 0px);
+          opacity: 1;
+        }
+      }
+      &:disabled{
+        transition: all 0.1s ease;
+        pointer-events: none;
+        box-shadow: 0px 0px 0px rgba(0,0,0, 0.3);
+      }
+    }
+
+    @keyframes shake {
+      0%, 100% {transform: translate3d(0, 0, 0)}
+      10%, 30% {transform: translate3d(-5px, 0, 0)}
+      20%, 40% {transform: translate3d(9px, 0, 0)}
+      50%, 70% {transform: translate3d(-10px, 0, 0)}
+      60%, 80% {transform: translate3d(6px, 0, 0)}
+      90%, 95% {transform: translate3d(-2px, 0, 0)}
+    }
+  }
+}
