@@ -1,0 +1,10 @@
+@mixin shake-animation{
+  @keyframes shake {
+    0%, 100% {transform: translate3d(0, 0, 0)}
+    10%, 30% {transform: translate3d(-5px, 0, 0)}
+    20%, 40% {transform: translate3d(9px, 0, 0)}
+    50%, 70% {transform: translate3d(-10px, 0, 0)}
+    60%, 80% {transform: translate3d(6px, 0, 0)}
+    90%, 95% {transform: translate3d(-2px, 0, 0)}
+  }
+}
