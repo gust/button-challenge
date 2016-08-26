@@ -66,10 +66,6 @@
     width: 80px;
     margin: 0 auto;
     padding: 0;
-    #first-x{
-      stroke-dasharray: 0;
-      stroke-dashoffset: 0;
-    }
     &:hover{
       button{
         &:disabled{
